@@ -2,5 +2,7 @@
     <Realm className="org.apache.catalina.realm.JAASRealm"
            appName="JaasLoginModule"
            userClassNames="ru.roznov.jaastest.UserPrincipal"
-           roleClassNames="ru.roznov.jaastest.RolePrincipal"/>
+           roleClassNames="ru.roznov.jaastest.RolePrincipal"
+           configFile = "jaas.config"
+    />
 </Context>

@@ -22,45 +22,20 @@ public class JaasLoginModule implements LoginModule {
 
     @Override
     public void initialize(Subject subject, CallbackHandler callbackHandler, Map<String, ?> sharedState, Map<String, ?> options) {
-        this.subject = subject;
-        this.callbackHandler = callbackHandler;
-        this.sharedState = sharedState;
-        this.options = options;
+        System.out.println("module started");
     }
 
     @Override
     public boolean login() throws LoginException {
-        Callback[] callbacks = new Callback[2];
-        callbacks[0] = new NameCallback("Имя пользователя");
-        callbacks[1] = new PasswordCallback("Пароль", false);
-        try {
-            callbackHandler.handle(callbacks);
-            username = ((NameCallback) callbacks[0]).getName();
-            password = ((PasswordCallback) callbacks[1]).getPassword();
-        } catch (IOException | UnsupportedCallbackException e) {
-            throw new LoginException(e.getLocalizedMessage());
-        }
-        if ("admin".equals(username) && "12345".equals(new String(password))) {
-            succeeded = true;
-            return true;
-        } else {
-            succeeded = false;
-            username = null;
-            password = null;
-            throw new LoginException("Неверное имя пользователя или пароль");
-        }
+        System.out.println("login started");
+        return false;
     }
 
     @Override
     public boolean commit() throws LoginException {
-        if (!succeeded) {
-            return false;
-        } else {
-            subject.getPrincipals().add(new UserPrincipal(username));
-            commitSucceeded = true;
-            return true;
-        }
+        return false;
     }
+
 
     @Override
     public boolean abort() throws LoginException {

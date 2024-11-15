@@ -9,7 +9,7 @@
             <url-pattern>/myServlet</url-pattern>
         </web-resource-collection>
         <auth-constraint>
-            <role-name>admin</role-name>
+            <role-name>user</role-name>
         </auth-constraint>
     </security-constraint>
 
@@ -22,7 +22,7 @@
     </login-config>
 
     <security-role>
-        <role-name>admin</role-name>
+        <role-name>user</role-name>
     </security-role>
 
 
